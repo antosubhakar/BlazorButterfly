@@ -13,11 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.6.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.6.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\JAICT.Blazor.Recipes.Entities\JAICT.Blazor.Recipes.Entities.csproj" />
     <ProjectReference Include="..\JAICT.Blazor.Recipes.UI.Client.Mvvm\JAICT.Blazor.Recipes.UI.Client.Mvvm.csproj" />
     <ProjectReference Include="..\JAICT.Blazor.Recipes.UI.ViewModels\JAICT.Blazor.Recipes.UI.Client.ViewModels.csproj" />
