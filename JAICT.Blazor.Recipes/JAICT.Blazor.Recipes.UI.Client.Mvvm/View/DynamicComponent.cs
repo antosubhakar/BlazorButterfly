@@ -1,13 +1,15 @@
 ﻿using JAICT.Blazor.Recipes.UI.Client.Mvvm.Interfaces;
 using JAICT.Blazor.Recipes.UI.Client.Mvvm.ViewModel;
-using Microsoft.AspNetCore.Blazor.Components;
-using Microsoft.AspNetCore.Blazor.RenderTree;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
+
+//using Microsoft.AspNetCore.Blazor.RenderTree;
 using System;
 using System.Diagnostics;
 
 namespace JAICT.Blazor.Recipes.UI.Client.Mvvm.View
 {
-    public class DynamicComponent : BlazorComponent
+    public class DynamicComponent : ComponentBase
     {
         private bool _isInitialized = false;
 
@@ -24,16 +26,16 @@ namespace JAICT.Blazor.Recipes.UI.Client.Mvvm.View
 
         [Inject]
         [Parameter]
-        protected IViewTypeSelector ViewModelTypeSelector { get;set; }
+        public IViewTypeSelector ViewModelTypeSelector { get;set; }
 
         /// <summary>
         /// View Model Type Name
         /// </summary>
         [Parameter]
-        protected string ViewModelType { get; set; }
+        public string ViewModelType { get; set; }
 
         [Parameter]
-        protected IViewModelManager ViewModelManager
+        public IViewModelManager ViewModelManager
         {
             get
             {
@@ -80,7 +82,7 @@ namespace JAICT.Blazor.Recipes.UI.Client.Mvvm.View
 
         private Type ViewType { get; set; }
 
-        protected override void OnInit()
+        protected override void OnInitialized()
         {
             // Update type information before rendering
             UpdateTypeInformation();

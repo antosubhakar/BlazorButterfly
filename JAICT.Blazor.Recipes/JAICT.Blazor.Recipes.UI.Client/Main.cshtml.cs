@@ -1,9 +1,7 @@
-
-
-using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.AspNetCore.Components;
 
 namespace JAICT.Blazor.Recipes.UI.Client.Pages
 {
     [Route("/")]
-    public class Main : BlazorComponent { }    
+    public class Main : ComponentBase { }    
 }

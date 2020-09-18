@@ -1,14 +1,14 @@
 ﻿using JAICT.Blazor.Recipes.UI.Client.Mvvm.Interfaces;
 using JAICT.Blazor.Recipes.UI.Client.Mvvm.ViewModel;
-using Microsoft.AspNetCore.Blazor.Components;
-using Microsoft.AspNetCore.Blazor.RenderTree;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
 using System;
 using System.Diagnostics;
 using System.Linq;
 
 namespace JAICT.Blazor.Recipes.UI.Client.Mvvm.View
 {
-    public class DynamicComponentCollection : BlazorComponent
+    public class DynamicComponentCollection : ComponentBase
     {
         private bool _isInitialized = false;
 
@@ -17,10 +17,10 @@ namespace JAICT.Blazor.Recipes.UI.Client.Mvvm.View
 
         [Inject]
         [Parameter]
-        protected IViewTypeSelector ViewModelTypeSelector { get; set; }
+        public IViewTypeSelector ViewModelTypeSelector { get; set; }
 
         [Parameter]
-        protected IViewModelCollectionManager ViewModelCollectionManager { get; set; }
+        public IViewModelCollectionManager ViewModelCollectionManager { get; set; }
 
         private void ViewModelManager_ModelUpdated(object sender, EventArgs e)
         {
@@ -52,7 +52,7 @@ namespace JAICT.Blazor.Recipes.UI.Client.Mvvm.View
             base.BuildRenderTree(builder);
         }
 
-        protected override void OnInit()
+        protected override void OnInitialized()
         {
             if (ViewModelCollectionManager == null || ViewModelCollectionManager.Current == null)
             {

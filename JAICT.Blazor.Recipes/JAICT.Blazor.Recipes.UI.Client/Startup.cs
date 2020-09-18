@@ -1,10 +1,11 @@
+/*
 using JAICT.Blazor.Recipes.Application;
 using JAICT.Blazor.Recipes.UI.Client.Mvvm;
 using JAICT.Blazor.Recipes.UI.Client.Mvvm.Interfaces;
 using JAICT.Blazor.Recipes.UI.Client.Mvvm.View;
 using JAICT.Blazor.Recipes.UI.Client.Mvvm.ViewModel;
 using JAICT.Blazor.Recipes.UI.Client.Views;
-using Microsoft.AspNetCore.Blazor.Builder;
+using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace JAICT.Blazor.Recipes.UI.Client
@@ -47,3 +48,4 @@ namespace JAICT.Blazor.Recipes.UI.Client
         }
     }
 }
+*/

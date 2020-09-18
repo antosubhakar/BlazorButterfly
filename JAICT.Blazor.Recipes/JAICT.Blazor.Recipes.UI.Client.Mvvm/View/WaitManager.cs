@@ -1,25 +1,25 @@
 ﻿using Microsoft.JSInterop;
 using System.Threading.Tasks;
-
+using Microsoft.JSInterop.WebAssembly;
 namespace JAICT.Blazor.Recipes.UI.Client.Mvvm.View
 {
     public static class WaitManager
     {
-        public static async Task SetBusy(bool busy)
+        public static async Task SetBusy(bool busy, IJSRuntime jsRuntime)
         {
             if (busy)
-                await StartWait();
+                await StartWait(jsRuntime);
             else
-                await EndWait();
+                await EndWait(jsRuntime);
         }
-        public static async Task StartWait()
+        public static async Task StartWait(IJSRuntime jsRuntime)
         {
-            await JSRuntime.Current.InvokeAsync<bool>("startwait");
+            await jsRuntime.InvokeAsync<bool>("startwait"); // "Added as JSRuntime.Current Depreciated"
         }
 
-        public static async Task EndWait()
+        public static async Task EndWait(IJSRuntime jsRuntime)
         {
-            await JSRuntime.Current.InvokeAsync<bool>("endwait");
+            await jsRuntime.InvokeAsync<bool>("endwait");
         }
     }
 }
